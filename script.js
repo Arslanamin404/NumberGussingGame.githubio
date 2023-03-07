@@ -1,4 +1,3 @@
-alert("Alert: Enter the number until you get correct number, if you click on play again button the number will be changed.")
 let gameNum = Math.floor(Math.random() * 100);    //will generate random nums from 0-100.
 console.log(gameNum)
 let output = document.getElementById("output")
@@ -20,9 +19,13 @@ function submit() {
         }
         else {
             output.innerHTML = `Try a greater number.`
-            output.style.color = "#ffc107"
+            output.style.color = "red"
             output.style.animation = "shake 4s "
             output.style["-webkit-animation"]= "shake 4s "
             totalGuess++
         }
     }
+    function clearResult(){
+        output.innerHTML = ''
+    }
+    document.querySelector("input").addEventListener("keydown",clearResult)
